@@ -36,7 +36,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener, MessageAdapter.MessageAdapterListener {
 
-    private static final String TAG ="MainActivity" ;
+    private static final String TAG = "MainActivity";
     private List<Message> messages = new ArrayList<>();
     private RecyclerView recyclerView;
     private MessageAdapter messageAdapter;
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,SendEmailActivity.class);
+                Intent intent = new Intent(MainActivity.this, SendEmailActivity.class);
                 startActivity(intent);
                 Snackbar.make(v, "Compose Email", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
@@ -101,9 +101,9 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             public void onResponse(Call<List<Message>> call, Response<List<Message>> response) {
                 // Clear the inbox
                 messages.clear();
-                Log.d(TAG, "onResponse: "+response.body());
+                Log.d(TAG, "onResponse: " + response.body());
                 //add All the messages
-               //  messages.addAll(response.body());
+                //  messages.addAll(response.body());
 
                 // TODO - avoid looping
                 // the loop was performed to add colors to each message
@@ -253,6 +253,14 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 case R.id.action_delete:
                     //delete all the selected messages
                     deleteMessages();
+                    mode.finish();
+                    return true;
+                case R.id.action_archive:
+                    Toast.makeText(MainActivity.this, "Archived Mail", Toast.LENGTH_SHORT).show();
+                    mode.finish();
+                    return true;
+                case R.id.action_read:
+                    Toast.makeText(MainActivity.this, "Marked as Read", Toast.LENGTH_SHORT).show();
                     mode.finish();
                     return true;
                 default:
