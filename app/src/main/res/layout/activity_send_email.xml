@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    tools:context=".Activity.SendEmailActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_to"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to"
+            android:textColor="@color/bg_action_mode"
+            android:textSize="@dimen/text_view" />
+
+        <EditText
+            android:id="@+id/et_to"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/timestamp"
+            android:layout_marginStart="18dp"
+            android:backgroundTint="@color/message"
+            android:inputType="textEmailAddress" />
+
+        <ImageView
+            android:id="@+id/img_show_more"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:src="@drawable/arrow_drop_down" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_cc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_to"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cc"
+            android:textColor="@color/bg_action_mode"
+            android:textSize="@dimen/text_view" />
+
+        <EditText
+            android:id="@+id/et_cc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="@dimen/timestamp"
+            android:layout_marginStart="18dp"
+            android:backgroundTint="@color/message"
+            android:inputType="textEmailAddress"
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_bcc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_cc"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bcc"
+            android:textColor="@color/bg_action_mode"
+            android:textSize="@dimen/text_view" />
+
+        <EditText
+            android:id="@+id/et_bcc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="@dimen/timestamp"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/message"
+            android:inputType="textEmailAddress" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_bcc"
+        android:layout_margin="@dimen/timestamp"
+        android:backgroundTint="@color/message"
+        android:hint="@string/subject"
+        android:inputType="textEmailSubject" />
+
+    <EditText
+        android:id="@+id/et_compose_mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_subject"
+        android:layout_marginLeft="@dimen/timestamp"
+        android:layout_marginRight="@dimen/timestamp"
+        android:backgroundTint="@color/message"
+        android:hint="@string/compose_mail"
+        android:inputType="textImeMultiLine" />
+</RelativeLayout>

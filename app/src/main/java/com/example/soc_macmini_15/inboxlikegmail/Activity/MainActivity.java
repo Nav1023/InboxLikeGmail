@@ -1,5 +1,6 @@
 package com.example.soc_macmini_15.inboxlikegmail.Activity;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.support.design.widget.FloatingActionButton;
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,SendEmailActivity.class);
+                startActivity(intent);
                 Snackbar.make(v, "Compose Email", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
