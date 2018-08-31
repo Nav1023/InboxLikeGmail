@@ -30,7 +30,8 @@
             android:layout_marginEnd="@dimen/timestamp"
             android:layout_marginStart="18dp"
             android:backgroundTint="@color/message"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:textCursorDrawable="@drawable/cursor_color" />
 
         <ImageView
             android:id="@+id/img_show_more"
@@ -65,6 +66,7 @@
             android:layout_marginStart="18dp"
             android:backgroundTint="@color/message"
             android:inputType="textEmailAddress"
+            android:textCursorDrawable="@drawable/cursor_color"
             tools:ignore="RtlHardcoded" />
     </LinearLayout>
 
@@ -93,7 +95,8 @@
             android:layout_marginRight="@dimen/timestamp"
             android:layout_marginStart="10dp"
             android:backgroundTint="@color/message"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:textCursorDrawable="@drawable/cursor_color" />
     </LinearLayout>
 
     <EditText
@@ -104,7 +107,8 @@
         android:layout_margin="@dimen/timestamp"
         android:backgroundTint="@color/message"
         android:hint="@string/subject"
-        android:inputType="textEmailSubject" />
+        android:inputType="textEmailSubject"
+        android:textCursorDrawable="@drawable/cursor_color" />
 
     <EditText
         android:id="@+id/et_compose_mail"
@@ -115,5 +119,6 @@
         android:layout_marginRight="@dimen/timestamp"
         android:backgroundTint="@color/message"
         android:hint="@string/compose_mail"
-        android:inputType="textImeMultiLine" />
+        android:inputType="textImeMultiLine"
+        android:textCursorDrawable="@drawable/cursor_color" />
 </RelativeLayout>

@@ -10,4 +10,5 @@
         android:orderInCategory="100"
         android:title="@string/action_delete"
         app:showAsAction="always" />
+    
 </menu>
