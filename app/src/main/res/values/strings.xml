@@ -22,4 +22,5 @@
     <string name="forums">Forums</string>
     <string name="user_name">Navneet Singh</string>
     <string name="user_email">rathore.singhnav@gmail.com</string>
+    <string name="search_hint">Enter subject</string>
 </resources>

@@ -1,5 +1,7 @@
 package com.example.soc_macmini_15.inboxlikegmail.Activity;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -24,6 +26,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.soc_macmini_15.inboxlikegmail.Adapter.MessageAdapter;
@@ -62,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+        showNavigation();
+        showData();
     }
 
 
@@ -91,9 +96,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                         .setAction("Action", null).show();
             }
         });
-
-        showNavigation();
-        showData();
     }
 
     /**
