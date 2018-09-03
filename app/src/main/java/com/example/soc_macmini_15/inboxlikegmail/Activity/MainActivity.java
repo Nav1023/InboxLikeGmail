@@ -69,6 +69,11 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
      * Initialising the values of views
      */
     private void init() {
+
+        mDrawableLayout = findViewById(R.id.drawer_layout);
+        recyclerView = findViewById(R.id.recycler_view);
+        swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
+        swipeRefreshLayout.setOnRefreshListener(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -87,22 +92,45 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             }
         });
 
-        mDrawableLayout = findViewById(R.id.drawer_layout);
-        recyclerView = findViewById(R.id.recycler_view);
-        swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
-        swipeRefreshLayout.setOnRefreshListener(this);
-
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 item.setChecked(true);
                 mDrawableLayout.closeDrawers();
+                switch (item.getItemId()) {
+                    case R.id.nav_primary:
+                        showData();
+                        Toast.makeText(MainActivity.this, "Primary !", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.nav_social:
+                        showData();
+                        Toast.makeText(MainActivity.this, "Social !", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.nav_promotions:
+                        showData();
+                        Toast.makeText(MainActivity.this, "Promotions !", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.nav_updates:
+                        showData();
+                        Toast.makeText(MainActivity.this, "Updates !", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.nav_forums:
+                        showData();
+                        Toast.makeText(MainActivity.this, "Forums !", Toast.LENGTH_SHORT).show();
+                        return true;
+                }
 
                 return true;
             }
         });
+        showData();
+    }
 
+    /**
+     * Function for showing the data in recyclerview
+     */
+    private void showData() {
         messageAdapter = new MessageAdapter(this, messages, this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);

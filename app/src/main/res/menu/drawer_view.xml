@@ -7,24 +7,24 @@
             android:icon="@drawable/primary"
             android:title="@string/primary" />
         <item
-            android:id="@+id/nav_title"
+            android:id="@+id/nav_social"
             android:icon="@drawable/social"
             android:title="@string/social" />
 
         <item
-            android:title="@string/promotions"
             android:id="@+id/nav_promotions"
-            android:icon="@drawable/promotions"/>
+            android:icon="@drawable/promotions"
+            android:title="@string/promotions" />
 
         <item
             android:id="@+id/nav_updates"
             android:icon="@drawable/updates"
-            android:title="@string/updates"/>
+            android:title="@string/updates" />
 
         <item
             android:id="@+id/nav_forums"
             android:icon="@drawable/forums"
-            android:title="@string/forums"/>
+            android:title="@string/forums" />
 
     </group>
 
