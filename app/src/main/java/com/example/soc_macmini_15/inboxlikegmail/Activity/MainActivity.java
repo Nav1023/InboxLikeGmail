@@ -39,6 +39,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Created By Navneet Singh
+ * Date :- 30/08/2018
+ */
+
+
 public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener, MessageAdapter.MessageAdapterListener {
 
     private static final String TAG = "MainActivity";
@@ -298,6 +304,18 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                     return true;
                 case R.id.action_read:
                     Toast.makeText(MainActivity.this, "Marked as Read", Toast.LENGTH_SHORT).show();
+                    mode.finish();
+                    return true;
+                case R.id.action_move_to:
+                    Toast.makeText(MainActivity.this, "Move to", Toast.LENGTH_SHORT).show();
+                    mode.finish();
+                    return true;
+                case R.id.action_change_label:
+                    Toast.makeText(MainActivity.this, "Change Labels", Toast.LENGTH_SHORT).show();
+                    mode.finish();
+                    return true;
+                case R.id.action_report_spam:
+                    Toast.makeText(MainActivity.this, "Report Spam", Toast.LENGTH_SHORT).show();
                     mode.finish();
                     return true;
                 default:

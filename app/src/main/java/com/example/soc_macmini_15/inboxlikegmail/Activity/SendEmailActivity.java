@@ -17,6 +17,13 @@ import com.example.soc_macmini_15.inboxlikegmail.R;
 
 import static com.example.soc_macmini_15.inboxlikegmail.R.string.compose;
 
+
+/**
+ *  Created By Navneet Singh
+ *  Date :- 31/08/2018
+ *
+ */
+
 public class SendEmailActivity extends AppCompatActivity {
 
     private EditText etTo, etCc, etBcc, etSubject, etBody;
