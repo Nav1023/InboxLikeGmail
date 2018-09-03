@@ -1,6 +1,7 @@
 package com.example.soc_macmini_15.inboxlikegmail.Activity;
 
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -103,7 +104,13 @@ public class SendEmailActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.action_send:
-                send();
+                if (etTo.getText().toString().isEmpty()) {
+                    Snackbar.make(findViewById(R.id.rl_send_mail), "Email is mandatory to send", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null)
+                            .show();
+                } else {
+                    send();
+                }
                 break;
             case android.R.id.home:
                 this.finish();
