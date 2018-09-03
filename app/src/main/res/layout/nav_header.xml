@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="192dp"
-    android:background="@color/row_activated"
+    android:background="@color/bg_action_mode"
     android:gravity="bottom"
     android:orientation="vertical"
     android:padding="@dimen/padding_list_row"
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="@string/user_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/from"
+        android:textColor="@color/colorAccent"
         android:textStyle="bold" />
 
     <TextView
@@ -27,6 +27,6 @@
         android:layout_height="wrap_content"
         android:text="@string/user_email"
         android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
-        android:textColor="@color/from" />
+        android:textColor="@color/colorAccent" />
 
 </LinearLayout>
