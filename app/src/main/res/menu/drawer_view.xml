@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_primary"
+            android:icon="@drawable/primary"
+            android:title="@string/primary" />
+        <item
+            android:id="@+id/nav_title"
+            android:icon="@drawable/social"
+            android:title="@string/social" />
+
+        <item
+            android:title="@string/promotions"
+            android:id="@+id/nav_promotions"
+            android:icon="@drawable/promotions"/>
+
+        <item
+            android:id="@+id/nav_updates"
+            android:icon="@drawable/updates"
+            android:title="@string/updates"/>
+
+        <item
+            android:id="@+id/nav_forums"
+            android:icon="@drawable/forums"
+            android:title="@string/forums"/>
+
+    </group>
+
+</menu>

@@ -15,4 +15,11 @@
     <string name="move_to">Move To</string>
     <string name="change_labels">Change Labels</string>
     <string name="report_spam">Report Spam</string>
+    <string name="primary">Primary</string>
+    <string name="social">Social</string>
+    <string name="promotions">Promotions</string>
+    <string name="updates">Updates</string>
+    <string name="forums">Forums</string>
+    <string name="user_name">Navneet Singh</string>
+    <string name="user_email">rathore.singhnav@gmail.com</string>
 </resources>

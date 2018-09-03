@@ -3,9 +3,14 @@ package com.example.soc_macmini_15.inboxlikegmail.Activity;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -43,13 +48,27 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     private SwipeRefreshLayout swipeRefreshLayout;
     private ActionModeCallback actionModeCallback;
     private ActionMode actionMode;
+    private DrawerLayout mDrawableLayout;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
+    }
+
+
+    /**
+     * Initialising the values of views
+     */
+    private void init() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
 
         FloatingActionButton floatingActionButton = findViewById(R.id.fab);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -62,9 +81,21 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             }
         });
 
+        mDrawableLayout = findViewById(R.id.drawer_layout);
         recyclerView = findViewById(R.id.recycler_view);
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(this);
+
+        navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                item.setChecked(true);
+                mDrawableLayout.closeDrawers();
+
+                return true;
+            }
+        });
 
         messageAdapter = new MessageAdapter(this, messages, this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -85,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 }
         );
     }
+
 
     /**
      * Fetches mail messages by making HTTP request
@@ -153,11 +185,16 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         //  Handle action bar items click here.
         int id = item.getItemId();
 
-        // No inspection SimplificableIf Statement
-        if (id == R.id.action_search) {
-            Toast.makeText(getApplicationContext(), "Search. . .", Toast.LENGTH_SHORT).show();
-            return true;
+        switch (id) {
+            case R.id.action_search:
+                Toast.makeText(getApplicationContext(), "Search. . .", Toast.LENGTH_SHORT).show();
+                return true;
+            case android.R.id.home:
+                mDrawableLayout.openDrawer(GravityCompat.START);
+                return true;
         }
+
+
         return super.onOptionsItemSelected(item);
     }
 
