@@ -92,6 +92,39 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             }
         });
 
+        showNavigation();
+        showData();
+    }
+
+    /**
+     * Function for showing the data in recyclerview
+     */
+    private void showData() {
+        messageAdapter = new MessageAdapter(this, messages, this);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
+        recyclerView.setAdapter(messageAdapter);
+
+        actionModeCallback = new ActionModeCallback();
+
+        // Show loader and fetch messages
+        swipeRefreshLayout.post(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        getInbox();
+                    }
+                }
+        );
+    }
+
+    /**
+     * Navigation Drawer Itemclick events Handled
+     */
+
+    private void showNavigation() {
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -124,33 +157,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 return true;
             }
         });
-        showData();
     }
-
-    /**
-     * Function for showing the data in recyclerview
-     */
-    private void showData() {
-        messageAdapter = new MessageAdapter(this, messages, this);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
-        recyclerView.setAdapter(messageAdapter);
-
-        actionModeCallback = new ActionModeCallback();
-
-        // Show loader and fetch messages
-        swipeRefreshLayout.post(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        getInbox();
-                    }
-                }
-        );
-    }
-
 
     /**
      * Fetches mail messages by making HTTP request
